@@ -1,0 +1,3 @@
+CREATE USER 'foo'@'%' IDENTIFIED BY '123456';
+GRANT ALL ON *.* TO 'foo'@'%';
+CREATE DATABASE mydb;
