@@ -1,0 +1,16 @@
+{
+    "name": "cwhsu/app",
+    "description": "demo app",
+    "type": "project",
+    "require": {
+        "j4mie/idiorm": "^1.5",
+        "robmorgan/phinx": "^0.10.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cwhsu",
+            "email": "cwhsu1984@gmail.com"
+        }
+    ]
+}
