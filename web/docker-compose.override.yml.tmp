@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+    db:
+        volumes:
+            - ./mysql/datadir:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=123456
+    fpm:
+        volumes:
+            - /home/cwhsu/docker-demo/app:/usr/share/nginx/html
+    web:
+        ports:
+            - "8080:80"

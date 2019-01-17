@@ -8,7 +8,19 @@ ORM::configure([
     'password' => '123456',
 ]);
 
-$users = ORM::for_table('user')
-    ->find_array();
+$redis = new Redis();
+$redis->connect('172.18.0.5', 6379);
+$userJsonString = $redis->get('users');
+print "<pre>";
+if ($userJsonString) {
+    echo "user from cache:\n";
+} else {
+    echo "user from db:\n";
+    $users = ORM::for_table('user')
+        ->find_array();
 
-echo json_encode($users);
+    $userJsonString = json_encode($users);
+    $redis->setEx('users', 5, $userJsonString);
+}
+
+echo $userJsonString;
